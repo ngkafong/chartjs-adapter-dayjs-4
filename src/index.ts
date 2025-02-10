@@ -56,7 +56,7 @@ _adapters._date.override({
     } else if (!(value instanceof dayjs)) {
       return dayjs(value).isValid() ? dayjs(value).valueOf() : null;
     }
-    return null;
+    return (value as dayjs.Dayjs).valueOf();
   },
   format: function (time: any, format: TimeUnit): string {
     return dayjs(time).format(format);
